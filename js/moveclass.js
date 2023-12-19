@@ -54,7 +54,7 @@ function moveElements() {
       // Randomly transform in scale
       const randomScaleChange = (Math.random() - 0.05) * 0.1; // Random scale change between -0.1 and 0.1
       const currentScale = parseFloat(window.getComputedStyle(element).transform.split(',')[3]);
-      const nextScale = Math.max(0.5, Math.min(currentScale + randomScaleChange, 1.5));
+      const nextScale = Math.max(0.5, Math.min(currentScale + randomScaleChange, 0.1));
 
       // Move in the current direction and apply the new scale
       element.style.transform = `translate(${boundedX}px, ${boundedY}px) scale(${nextScale})`;
