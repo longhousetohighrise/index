@@ -40,6 +40,7 @@ top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  font-size: 16px;
 }
 
 h1 {
@@ -48,6 +49,13 @@ h1 {
     font-size:5.5em;
     line-height: 0.9em;
 }
+
+.smallh {
+font-size:-1em;
+}
+
+.cap1 {font-family:Tagada, serif; }
+.cap2 {font-family:Canada, sans-serif; }
 
 .transcriptionpop {
 position: absolute;
@@ -421,13 +429,18 @@ padding-right: 15px;
   src: url('./fonts/Tagada-Regular.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'Canada';
+  src: url('./fonts/canada1500-rg.otf') format('opentype');
+}
+
 </style>
 
 </head>
 <body>
 
 <div class="loadingscreen" id="loadingscreen"><div class="vertcen">
-<h1>From Longhouse to Highrise</h1>
+<h1><span class="smallh">From</span><span class="cap1">Longhouse</span><span class="smallh">to</span><span class="cap2">Highrise</span></h1>
 <h2>The Course of Empire</h2>
 <p>Press play to listen from the beginning or click on a model to jump to a different section in the soundscape.</p>
 <div id="loading">Loading...</div><button id="play-button-load"><span>play_arrow</span></button>
