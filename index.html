@@ -841,49 +841,51 @@ audio.addEventListener('timeupdate', function() {
   currentTimeSpan.textContent = formatTime(audio.currentTime);
 
   // Check timestamps and show/hide corresponding img divs
-  if (audio.currentTime >= 0 && audio.currentTime < 9) {
+  if (audio.currentTime >= 0 && audio.currentTime < 4) {
     showImgDiv('img1-1');
-} else if (audio.currentTime >= 10 && audio.currentTime < 19) {
+} else if (audio.currentTime >= 5 && audio.currentTime < 9) {
     showImgDiv('img1-2');
-} else if (audio.currentTime >= 20 && audio.currentTime < 29) {
+} else if (audio.currentTime >= 10 && audio.currentTime < 14) {
     showImgDiv('img1-3');
-} else if (audio.currentTime >= 30 && audio.currentTime < 39) {
+} else if (audio.currentTime >= 15 && audio.currentTime < 19) {
     showImgDiv('img1-4');
-} else if (audio.currentTime >= 40 && audio.currentTime < 49) {
+} else if (audio.currentTime >= 20 && audio.currentTime < 24) {
     showImgDiv('img1-5');
-} else if (audio.currentTime >= 50 && audio.currentTime < 59) {
+} else if (audio.currentTime >= 25 && audio.currentTime < 29) {
     showImgDiv('img1-6');
-} else if (audio.currentTime >= 60 && audio.currentTime < 69) {
+} else if (audio.currentTime >= 30 && audio.currentTime < 34) {
     showImgDiv('img2-1');
-} else if (audio.currentTime >= 70 && audio.currentTime < 79) {
+} else if (audio.currentTime >= 35 && audio.currentTime < 36) {
     showImgDiv('img2-2');
-} else if (audio.currentTime >= 80 && audio.currentTime < 89) {
+} else if (audio.currentTime >= 37 && audio.currentTime < 38) {
     showImgDiv('img2-3');
-} else if (audio.currentTime >= 90 && audio.currentTime < 99) {
+} else if (audio.currentTime >= 39 && audio.currentTime < 40) {
     showImgDiv('img2-4');
-} else if (audio.currentTime >= 100 && audio.currentTime < 109) {
+} else if (audio.currentTime >= 41 && audio.currentTime < 42) {
     showImgDiv('img2-5');
-} else if (audio.currentTime >= 110 && audio.currentTime < 119) {
+} else if (audio.currentTime >= 43 && audio.currentTime < 44) {
     showImgDiv('img2-6');
-} else if (audio.currentTime >= 120 && audio.currentTime < 129) {
+} else if (audio.currentTime >= 45 && audio.currentTime < 46) {
     showImgDiv('img2-7');
-} else if (audio.currentTime >= 130 && audio.currentTime < 139) {
+} else if (audio.currentTime >= 47 && audio.currentTime < 48) {
     showImgDiv('img2-8');
-} else if (audio.currentTime >= 140 && audio.currentTime < 149) {
+} else if (audio.currentTime >= 49 && audio.currentTime < 50) {
     showImgDiv('img2-9');
-} else if (audio.currentTime >= 150 && audio.currentTime < 159) {
+} else if (audio.currentTime >= 51 && audio.currentTime < 52) {
     showImgDiv('img2-10');
-} else if (audio.currentTime >= 160 && audio.currentTime < 169) {
+} else if (audio.currentTime >= 53 && audio.currentTime < 54) {
     showImgDiv('img2-11');
-} else if (audio.currentTime >= 170 && audio.currentTime < 179) {
+} else if (audio.currentTime >= 55 && audio.currentTime < 56) {
     showImgDiv('img2-12');
-} else if (audio.currentTime >= 180 && audio.currentTime < 189) {
+} else if (audio.currentTime >= 57 && audio.currentTime < 58) {
     showImgDiv('img2-13');
-} else if (audio.currentTime >= 190 && audio.currentTime < 199) {
+} else if (audio.currentTime >= 59 && audio.currentTime < 60) {
     showImgDiv('img2-14');
-} else if (audio.currentTime >= 200 && audio.currentTime < 209) {
+} else if (audio.currentTime >= 61 && audio.currentTime < 62) {
     showImgDiv('img2-15');
-} else if (audio.currentTime >= 210 && audio.currentTime < 217) {
+} else if (audio.currentTime >= 63 && audio.currentTime < 95) {
+    showImgDiv('img2-2');
+} else if (audio.currentTime >= 123 && audio.currentTime < 217) {
     showImgDiv('img3');
 } else if (audio.currentTime >= 218 && audio.currentTime < 254) {
     showImgDiv('img4');
@@ -899,17 +901,17 @@ audio.addEventListener('timeupdate', function() {
     showImgDiv('img9');
 } else if (audio.currentTime >= 599 && audio.currentTime < 697) {
     showImgDiv('img10');
-} else if (audio.currentTime >= 698 && audio.currentTime < 750) {
+} else if (audio.currentTime >= 698 && audio.currentTime < 772) {
     showImgDiv('img11');
-} else if (audio.currentTime >= 751 && audio.currentTime < 830) {
+} else if (audio.currentTime >= 773 && audio.currentTime < 830) {
     showImgDiv('img12');
 } else if (audio.currentTime >= 831 && audio.currentTime < 875) {
     showImgDiv('img13');
 } else if (audio.currentTime >= 876 && audio.currentTime < 906) {
     showImgDiv('img14');
-} else if (audio.currentTime >= 907 && audio.currentTime < 951) {
+} else if (audio.currentTime >= 907 && audio.currentTime < 988) {
     showImgDiv('img15');
-} else if (audio.currentTime >= 952 && audio.currentTime < 1062) {
+} else if (audio.currentTime >= 989 && audio.currentTime < 1062) {
     showImgDiv('img16');
   } else {
     // Hide all img divs if no specific condition is met
@@ -949,7 +951,7 @@ skipLink2.addEventListener('click', function(e) {
 
 skipLink3.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 121.8; // 2:03 
+  audio.currentTime = 123; // 2:03 revised from 1:36
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -965,7 +967,7 @@ skipLink4.addEventListener('click', function(e) {
 
 skipLink5.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 255; // 4:15 minutes in seconds
+  audio.currentTime = 255; // 4:15 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -973,7 +975,7 @@ skipLink5.addEventListener('click', function(e) {
 
 skipLink6.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 400; // 6:40 minutes in seconds
+  audio.currentTime = 400; // 6:40 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -981,7 +983,7 @@ skipLink6.addEventListener('click', function(e) {
 
 skipLink7.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 452; // 7:32 minutes in seconds
+  audio.currentTime = 452; // 7:32 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -989,7 +991,7 @@ skipLink7.addEventListener('click', function(e) {
 
 skipLink8.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 497; // 8:17 minutes in seconds
+  audio.currentTime = 497; // 8:17 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -997,7 +999,7 @@ skipLink8.addEventListener('click', function(e) {
 
 skipLink9.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 520; // 8:40 minutes in seconds
+  audio.currentTime = 520; // 8:40 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -1005,7 +1007,7 @@ skipLink9.addEventListener('click', function(e) {
 
 skipLink10.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 599; // 9:59 minutes in seconds
+  audio.currentTime = 599; // 9:59 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -1013,7 +1015,7 @@ skipLink10.addEventListener('click', function(e) {
 
 skipLink11.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 698; // 11:38 minutes in seconds
+  audio.currentTime = 698; // 11:38 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -1021,7 +1023,7 @@ skipLink11.addEventListener('click', function(e) {
 
 skipLink12.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 751; // 12:31 minutes in seconds
+  audio.currentTime = 773; // 12:53 revisde 12:31
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -1029,7 +1031,7 @@ skipLink12.addEventListener('click', function(e) {
 
 skipLink13.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 831; // 13:51 minutes in seconds
+  audio.currentTime = 831; // 13:51 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -1037,7 +1039,7 @@ skipLink13.addEventListener('click', function(e) {
 
 skipLink14.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 876; // 14:36 minutes in seconds
+  audio.currentTime = 876; // 14:36 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -1045,7 +1047,7 @@ skipLink14.addEventListener('click', function(e) {
 
 skipLink15.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 907; // 15:07 minutes in seconds
+  audio.currentTime = 907; // 15:07 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -1053,7 +1055,7 @@ skipLink15.addEventListener('click', function(e) {
 
 skipLink16.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 952; // 15:52 minutes in seconds
+  audio.currentTime = 989; // 16:29 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
@@ -1061,7 +1063,7 @@ skipLink16.addEventListener('click', function(e) {
 
 skipLink17.addEventListener('click', function(e) {
   e.preventDefault();
-  audio.currentTime = 1063; // 17:43 minutes in seconds
+  audio.currentTime = 1063; // 17:43 
   audio.play(); // Start playing the audio
   playButton.classList.add('hidden');
   pauseButton.classList.remove('hidden');
