@@ -11,7 +11,7 @@ function getRandomDirection() {
 elements.forEach((element) => {
   const randomX = Math.random() * (window.innerWidth + 200) - 100;
   const randomY = Math.random() * (window.innerHeight + 200) - 100;
-  const randomScale = Math.random() * 0.05 + 0.2; // Initial scale between 0.9 and 1.1
+  const randomScale = Math.random() * 0.05 + 0.3; // Initial scale between 0.9 and 1.1
 
   element.style.transform = `translate(${randomX}px, ${randomY}px) scale(${randomScale})`;
   element.direction = getRandomDirection();
@@ -52,9 +52,9 @@ function moveElements() {
       }
 
       // Randomly transform in scale
-      const randomScaleChange = (Math.random() - 0.05) * 0.2; // Random scale change between -0.1 and 0.1
+      const randomScaleChange = (Math.random() - 0.05) * 0.3; // Random scale change between -0.1 and 0.1
       const currentScale = parseFloat(window.getComputedStyle(element).transform.split(',')[3]);
-      const nextScale = Math.max(0.5, Math.min(currentScale + randomScaleChange, 0.2));
+      const nextScale = Math.max(0.5, Math.min(currentScale + randomScaleChange, 0.3));
 
       // Move in the current direction and apply the new scale
       element.style.transform = `translate(${boundedX}px, ${boundedY}px) scale(${nextScale})`;

@@ -46,7 +46,7 @@ loader.load('model/cluster3.gltf', (gltf) => {
   camera.aspect = container.clientWidth / container.clientHeight;
   camera.updateProjectionMatrix();
 
-  model.scale.set(0.3, 0.3, 0.3); // Adjust the scale as needed
+  model.scale.set(0.2, 0.2, 0.2); // Adjust the scale as needed
   scene.add(model);
 
   // Set up rotation animation

@@ -46,7 +46,7 @@ loader.load('model/cluster2.gltf', (gltf) => {
   camera.aspect = container.clientWidth / container.clientHeight;
   camera.updateProjectionMatrix();
 
-  model.scale.set(0.6, 0.6, 0.6); // Adjust the scale as needed
+  model.scale.set(0.5, 0.5, 0.5); // Adjust the scale as needed
   scene.add(model);
 
   // Add click event listener to stop rotation
