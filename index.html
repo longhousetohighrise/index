@@ -70,14 +70,14 @@ position: relative;
 top: -25px;
 }
 
-.cap1 {font-family: Ezekiel, serif; font-size: 1.2em;}
+.cap1 {font-family: Ezekiel, serif; font-size: 1.3em;}
 .cap2 {font-family: Canada, sans-serif;}
 
 h2 {
     font-family:Ezekiel, serif; 
     line-height: 0.9em;
     font-size: 3em;
-    padding:10;
+    padding-top:10px;
 }
 
 .transcriptionpop {
@@ -515,6 +515,12 @@ padding-right: 15px;
 <div id="img15" class="cover hidden"></div>
 <div id="img16" class="cover hidden"></div>
 <div id="img17" class="cover hidden"></div>
+<div id="img18" class="cover hidden"></div>
+<div id="img19" class="cover hidden"></div>
+<div id="img20" class="cover hidden"></div>
+<div id="img21" class="cover hidden"></div>
+<div id="img22" class="cover hidden"></div>
+<div id="img23" class="cover hidden"></div>
 
 
 <a href="#" class="move" id="skip-link-2"><div id="scene-2" class="centerscene"></div></a>
@@ -902,36 +908,50 @@ audio.addEventListener('timeupdate', function() {
     showImgDiv('img2-14');
 } else if (audio.currentTime >= 61 && audio.currentTime < 63) {
     showImgDiv('img2-15');
-} else if (audio.currentTime >= 63 && audio.currentTime < 95) {
+} else if (audio.currentTime >= 63 && audio.currentTime < 123) {
     showImgDiv('img2-2');
-} else if (audio.currentTime >= 123 && audio.currentTime < 217) {
+} else if (audio.currentTime >= 123 && audio.currentTime < 218) {
     showImgDiv('img3');
-} else if (audio.currentTime >= 218 && audio.currentTime < 254) {
+} else if (audio.currentTime >= 218 && audio.currentTime < 255) {
     showImgDiv('img4');
-} else if (audio.currentTime >= 255 && audio.currentTime < 399) {
+} else if (audio.currentTime >= 255 && audio.currentTime < 400) {
     showImgDiv('img5');
-} else if (audio.currentTime >= 400 && audio.currentTime < 451) {
+} else if (audio.currentTime >= 400 && audio.currentTime < 452) {
     showImgDiv('img6');
-} else if (audio.currentTime >= 452 && audio.currentTime < 496) {
+} else if (audio.currentTime >= 452 && audio.currentTime < 497) {
     showImgDiv('img7');
-} else if (audio.currentTime >= 497 && audio.currentTime < 519) {
+} else if (audio.currentTime >= 497 && audio.currentTime < 520) {
     showImgDiv('img8');
-} else if (audio.currentTime >= 520 && audio.currentTime < 598) {
+} else if (audio.currentTime >= 520 && audio.currentTime < 599) {
     showImgDiv('img9');
-} else if (audio.currentTime >= 599 && audio.currentTime < 697) {
+} else if (audio.currentTime >= 599 && audio.currentTime < 698) {
     showImgDiv('img10');
-} else if (audio.currentTime >= 698 && audio.currentTime < 772) {
+} else if (audio.currentTime >= 698 && audio.currentTime < 773) {
     showImgDiv('img11');
-} else if (audio.currentTime >= 773 && audio.currentTime < 830) {
+} else if (audio.currentTime >= 773 && audio.currentTime < 831) {
     showImgDiv('img12');
-} else if (audio.currentTime >= 831 && audio.currentTime < 875) {
+} else if (audio.currentTime >= 831 && audio.currentTime < 876) {
     showImgDiv('img13');
-} else if (audio.currentTime >= 876 && audio.currentTime < 906) {
+} else if (audio.currentTime >= 876 && audio.currentTime < 907) {
     showImgDiv('img14');
-} else if (audio.currentTime >= 907 && audio.currentTime < 988) {
+} else if (audio.currentTime >= 907 && audio.currentTime < 989) {
     showImgDiv('img15');
-} else if (audio.currentTime >= 989 && audio.currentTime < 1062) {
+} else if (audio.currentTime >= 989 && audio.currentTime < 1063) {
     showImgDiv('img16');
+} else if (audio.currentTime >= 1063 && audio.currentTime < 1132) {
+    showImgDiv('img17');
+} else if (audio.currentTime >= 1132 && audio.currentTime < 1204) {
+    showImgDiv('img18');
+} else if (audio.currentTime >= 1204 && audio.currentTime < 1264) {
+    showImgDiv('img19');
+} else if (audio.currentTime >= 1264 && audio.currentTime < 1319) {
+    showImgDiv('img20');
+} else if (audio.currentTime >= 1319 && audio.currentTime < 1363) {
+    showImgDiv('img21');
+} else if (audio.currentTime >= 1363 && audio.currentTime < 1420) {
+    showImgDiv('img22');
+} else if (audio.currentTime >= 1420 && audio.currentTime < 1530) {
+    showImgDiv('img23');
   } else {
     // Hide all img divs if no specific condition is met
     hideAllImgDivs();
