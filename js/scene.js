@@ -293,7 +293,7 @@ const animate = () => {
     }
 
     if (isMoving) {
-      const translationSpeed = 0.05;
+      const translationSpeed = 0.03;
       model.position.x += translationDirection.x * translationSpeed;
       model.position.y += translationDirection.y * translationSpeed;
       model.position.z += translationDirection.z * translationSpeed;
