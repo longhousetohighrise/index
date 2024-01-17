@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Longhouse to Highrise: The Course of Empire by Dele Adeyemo</title>
+  <meta content="A multidimensional archive of space responding to the fiction of linear development contained in an origin story of North York, Canada." name="description">
+  <meta content="Longhouse to Highrise: The Course of Empire by Dele Adeyemo" property="og:title">
+  <meta content="A multidimensional archive of space responding to the fiction of linear development contained in an origin story of North York, Canada." property="og:description">
+  <meta content="https://uploads-ssl.webflow.com/6509cc94cdebea81f0295005/6520132bde7ac7ff7f5d38fc_OpenGraph.jpg" property="og:image">
+  <meta content="Longhouse to Highrise: The Course of Empire by Dele Adeyemo" property="twitter:title">
+  <meta content="A multidimensional archive of space responding to the fiction of linear development contained in an origin story of North York, Canada." property="twitter:description">
+  <meta content="https://uploads-ssl.webflow.com/6509cc94cdebea81f0295005/6520132bde7ac7ff7f5d38fc_OpenGraph.jpg" property="twitter:image">
+
+<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+<link rel="manifest" href="../favicon/site.webmanifest">
+
+<script>console.clear();</script>
+<script src="https://unpkg.com/three@0.87.1/build/three.js"></script>
+<script src="https://unpkg.com/three@0.87.1/examples/js/loaders/GLTFLoader.js"></script>
+
+<style>
+
+body { margin:0; overflow: hidden; font-family: Canadalt, sans-serif; color: white; line-height: 1.3em; }
+p {font-family: Canadalt, sans-serif;}
+b {font-family: Canada, sans-serif;}
+a {color: red; text-decoration: none;}
+ul {font-size: 0.8em;}
+
+.fullscreen {
+  position:relative; width: 100vw; height: 100vh; overflow: hidden; 
+  background:
+        linear-gradient(red, transparent),
+        linear-gradient(to top left, lime, transparent),
+        linear-gradient(to top right, blue, transparent);
+  background-blend-mode: screen; 
+}
+
+.loadingscreen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(red, transparent),
+        linear-gradient(to top left, lime, transparent),
+        linear-gradient(to top right, blue, transparent);
+  background-blend-mode: screen; 
+  z-index: 1000;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 2s ease; 
+}
+
+.loadingscreen.fade-out {
+  opacity: 0;
+}
+
+.vertcen {
+position: absolute;
+display: block;
+top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+font-size: 16px;
+line-height: 1em;
+padding-bottom: 50px;
+text-align: center;
+}
+
+.loadingscreen p {
+    font-family: Canadalt, sans-serif; 
+    max-width: 525px;
+    margin: auto;
+    padding-bottom:20px;
+    letter-spacing: 0.01em;
+    line-height: 1.2em;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-size: 5.6em;
+    line-height: 0.8em;
+}
+
+.smallh {
+font-size: 0.1em;
+line-height: 0em;
+font-family: Canada, sans-serif; 
+position: relative;
+top: -25px;
+}
+
+.cap1 {font-family: Ezekiel, serif; font-size: 1.3em;}
+.cap2 {font-family: Canada, sans-serif;}
+
+h2 {
+    font-family:Ezekiel, serif; 
+    line-height: 0.9em;
+    font-size: 3em;
+    padding-top:10px;
+}
+
+.transcriptionpop {
+position: absolute;
+width: 100%;
+height: 100%;
+z-index: 50;
+background:
+    linear-gradient(red, transparent),
+    linear-gradient(to top left, lime, transparent),
+    linear-gradient(to top right, blue, transparent);
+background-blend-mode: screen; 
+top:0;
+text-align: center;
+padding: 0px 20px 0px 20px;
+}
+
+.descriptionpop {
+position: absolute;
+width: 100%;
+height: 100%;
+z-index: 50;
+background:
+    linear-gradient(red, transparent),
+    linear-gradient(to top left, lime, transparent),
+    linear-gradient(to top right, blue, transparent);
+background-blend-mode: screen; 
+top:0;
+text-align: center;
+padding: 0px 20px 0px 20px;
+}
+
+.transpoptxt {
+max-width: 750px;
+margin-left:auto;
+margin-right: auto;
+text-align: left;
+height: 100%;
+overflow: scroll;
+font-size: 1em;
+padding-right: 40px;
+padding-top:50px;
+letter-spacing: 0.5px;
+}
+
+.buttonhold {
+    position: fixed;
+  top:15px;
+  right:15px;
+  z-index: 100;
+}
+
+.transbutt {
+    position: relative;
+  border: 1px solid white;
+  color: white;
+  background-color: transparent;
+  border-radius: 20px;
+  padding:5px 15px 5px 15px;
+  font-size: 16px;
+}
+
+.transbutt:hover {
+  border: 1px solid white;
+  color: black;
+  background-color: white;
+}
+
+.descbutt {
+    position: relative;
+  border: 1px solid white;
+  color: white;
+  background-color: transparent;
+  border-radius: 20px;
+  padding:5px 15px 5px 15px;
+  font-size: 16px;
+  margin-left:10px;
+}
+
+.descbutt:hover {
+  border: 1px solid white;
+  color: black;
+  background-color: white;
+}
+
+.spacer {
+    display: block;
+    width: 100%;
+    height: 250px;
+}
+
+.cover {
+  position: absolute;
+  width:100%;
+  height: 100%;
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: 80%;
+}
+
+#img1-1 {
+    background-image: url("../bg/cluster1-1.webp");
+}
+
+#img1-2 {
+    background-image: url("../bg/cluster1-2.webp");
+}
+
+#img1-3 {
+    background-image: url("../bg/cluster1-3.webp");
+}
+
+#img1-4 {
+    background-image: url("../bg/cluster1-4.webp");
+}
+
+#img1-5 {
+    background-image: url("../bg/cluster1-5.webp");
+}
+
+#img1-6 {
+    background-image: url("../bg/cluster1-6.webp");
+}
+
+#img2-1 {
+    background-image: url("../bg/cluster2-1.webp");
+}
+
+#img2-2 {
+    background-image: url("../bg/cluster2-2.webp");
+}
+
+#img2-3 {
+    background-image: url("../bg/cluster2-3.webp");
+}
+
+#img2-4 {
+    background-image: url("../bg/cluster2-4.webp");
+}
+
+#img2-5 {
+    background-image: url("../bg/cluster2-5.webp");
+}
+
+#img2-6 {
+    background-image: url("../bg/cluster2-6.webp");
+}
+
+#img2-7 {
+    background-image: url("../bg/cluster2-7.webp");
+}
+
+#img2-8 {
+    background-image: url("../bg/cluster2-8.webp");
+}
+
+#img2-9 {
+    background-image: url("../bg/cluster2-9.webp");
+}
+
+#img2-10 {
+    background-image: url("../bg/cluster2-10.webp");
+}
+
+#img2-11 {
+    background-image: url("../bg/cluster2-11.webp");
+}
+
+#img2-12 {
+    background-image: url("../bg/cluster2-12.webp");
+}
+
+#img2-13 {
+    background-image: url("../bg/cluster2-13.webp");
+}
+
+#img2-14 {
+    background-image: url("../bg/cluster2-14.webp");
+}
+
+#img3 {
+    background-image: url("../bg/cluster3.webp");
+}
+
+#img4 {
+    background-image: url("../bg/cluster4.webp");
+}
+
+#img5 {
+    background-image: url("../bg/cluster5.webp");
+}
+
+#img6 {
+    background-image: url("../bg/cluster6.webp");
+}
+
+#img7 {
+    background-image: url("../bg/cluster7.webp");
+}
+
+#img8 {
+    background-image: url("../bg/cluster8.webp");
+}
+
+#img9 {
+    background-image: url("../bg/cluster9.webp");
+}
+
+#img10 {
+    background-image: url("../bg/cluster10.webp");
+}
+
+#img11 {
+    background-image: url("../bg/cluster11.webp");
+}
+
+#img12 {
+    background-image: url("../bg/cluster12.webp");
+}
+
+#img13 {
+    background-image: url("../bg/cluster13.webp");
+}
+
+#img14 {
+    background-image: url("../bg/cluster14.webp");
+}
+
+#img15 {
+    background-image: url("../bg/cluster15.webp");
+}
+
+#img16 {
+    background-image: url("../bg/cluster16.webp");
+}
+
+#img17 {
+    background-image: url("../bg/cluster17.webp");
+}
+
+#img18 {
+    background-image: url("../bg/cluster18.webp");
+}
+
+#img19 {
+    background-image: url("../bg/cluster19.webp");
+}
+
+#img20 {
+    background-image: url("../bg/cluster20.webp");
+}
+
+#img21 {
+    background-image: url("../bg/cluster21.webp");
+}
+
+#img22 {
+    background-image: url("../bg/cluster22.webp");
+}
+
+#img23 {
+    background-image: url("../bg/cluster23.webp");
+}
+
+.thefog {
+  position: absolute;
+  width:100%;
+  height: 100%;
+  background-image: url("fog.gif");
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover;
+  -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
+    opacity: 75%;
+    pointer-events: none;
+}
+
+.player-wrap {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    width: 100vw;
+    padding: 20px;
+    display: flex;
+    z-index: 500;
+}
+
+.toggle-wrap {
+flex: 0 0 auto;
+padding-right: 15px;
+}
+
+#progress-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #FFF;
+      cursor: pointer;
+       flex: 1;
+       margin-top:15px;
+       border-radius:10px;
+       overflow: hidden;
+    }
+
+#progress-bar .progress {
+      height: 100%;
+      width:0px;
+      background-color: #000;
+    }
+
+#controls {
+  width:120px;
+  flex: 0 0 auto;
+  padding-left:15px;
+  margin-top: 10px;
+    }
+
+.hidden {
+  display: none !important;
+}
+
+#play-button {
+  width: 40px;
+  height: 40px;
+  font-family: Materialiconsround, sans-serif;
+  color: #000;
+  border: none ;
+  border-radius:30px;
+  font-size: 20px;
+  margin-right:10px;
+}
+
+#play-button:hover {
+  color: #FFF;
+  background-color: #000;
+}
+
+
+#play-button-load {
+  width: 40px;
+  height: 40px;
+  font-family: Materialiconsround, sans-serif;
+  color: #000;
+  border: none ;
+  border-radius:30px;
+  font-size: 20px;
+  display: none;
+}
+
+#play-button-load:hover {
+  color: #FFF;
+  background-color: #000;
+}
+
+#pause-button {
+  width: 40px;
+  height: 40px;
+  font-family: Materialiconsround, sans-serif;
+  color: #000;
+  border: none ;
+  border-radius:30px;
+  font-size: 20px;
+}
+
+#pause-button:hover {
+  color: #FFF;
+  background-color: #000;
+}
+
+#scene {
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+@font-face {
+  font-family: 'Materialiconsround';
+  src: url('./fonts/materialicons.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ezekiel';
+  src: url('./fonts/EzekielScript.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Canada';
+  src: url('./fonts/canada1500-rg.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Canadalt';
+  src: url('./fonts/canada1500-lt.otf') format('opentype');
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="loadingscreen" id="loadingscreen">
+<div class="vertcen">
+<h1><span class="smallh">From</span><br /><span class="cap1">Longhouse</span><br /><span class="smallh">to</span><br /><span class="cap2">Highrise</span></h1>
+<h2>The Course of Empire</h2>
+<p>From Longhouse to Highrise is a multidimensional archive of space that critically responds to the fiction of linear development contained in an origin story of North York, Canada.<br />
+<b>Press play</b> for entire track or <b>click models</b> to navigate the soundscape.</p>
+<div id="loading">Loading...</div>
+</div>
+</div>
+
+<div class="buttonhold">
+<button class="transbutt"><span class="openbutt">Transcription</span><span class="closebutt hidden">Close</span></button>
+<button class="descbutt"><span class="openbuttdesc">Description</span><span class="closebuttdesc hidden">Close</span></button>
+</div>
+
+<div class="fullscreen">
+
+<div id="img1-1" class="cover hidden" data-time-range="0-5"></div> 
+<div id="img1-2" class="cover hidden" data-time-range="5-10"></div> 
+<div id="img1-3" class="cover hidden" data-time-range="10-15"></div> 
+<div id="img1-4" class="cover hidden" data-time-range="15-20"></div> 
+<div id="img1-5" class="cover hidden" data-time-range="20-25"></div> 
+<div id="img1-6" class="cover hidden" data-time-range="25-32"></div> 
+<div id="img2-1" class="cover hidden" data-time-range="32-35"></div> 
+<div id="img2-2" class="cover hidden" data-time-range="35-37"></div> 
+<div id="img2-3" class="cover hidden" data-time-range="37-39"></div> 
+<div id="img2-4" class="cover hidden" data-time-range="39-41"></div> 
+<div id="img2-5" class="cover hidden" data-time-range="41-43"></div> 
+<div id="img2-6" class="cover hidden" data-time-range="43-45"></div> 
+<div id="img2-7" class="cover hidden" data-time-range="45-47"></div> 
+<div id="img2-8" class="cover hidden" data-time-range="47-49"></div> 
+<div id="img2-9" class="cover hidden" data-time-range="49-51"></div> 
+<div id="img2-10" class="cover hidden" data-time-range="51-53"></div> 
+<div id="img2-11" class="cover hidden" data-time-range="53-55"></div> 
+<div id="img2-12" class="cover hidden" data-time-range="55-57"></div> 
+<div id="img2-13" class="cover hidden" data-time-range="57-59"></div> 
+<div id="img2-14" class="cover hidden" data-time-range="59-61"></div> 
+<div id="img2-15" class="cover hidden" data-time-range="61-63"></div> 
+<div id="img2-2" class="cover hidden" data-time-range="63-124"></div> 
+<div id="img3" class="cover hidden" data-time-range="124-220"></div>
+<div id="img4" class="cover hidden" data-time-range="220-257"></div>
+<div id="img5" class="cover hidden" data-time-range="257-404"></div> 
+<div id="img6" class="cover hidden" data-time-range="404-448"></div> 
+<div id="img7" class="cover hidden" data-time-range="448-497"></div> 
+<div id="img8" class="cover hidden" data-time-range="497-519"></div> 
+<div id="img9" class="cover hidden" data-time-range="519-595"></div> 
+<div id="img10" class="cover hidden" data-time-range="595-698"></div> 
+<div id="img11" class="cover hidden" data-time-range="698-773"></div> 
+<div id="img12" class="cover hidden" data-time-range="773-830"></div>
+<div id="img13" class="cover hidden" data-time-range="830-879"></div>
+<div id="img14" class="cover hidden" data-time-range="879-909"></div>
+<div id="img15" class="cover hidden" data-time-range="909-989"></div>
+<div id="img16" class="cover hidden" data-time-range="989-1063"></div>
+<div id="img17" class="cover hidden" data-time-range="1063-1136"></div>
+<div id="img18" class="cover hidden" data-time-range="1136-1208"></div>
+<div id="img19" class="cover hidden" data-time-range="1208-1265"></div>
+<div id="img20" class="cover hidden" data-time-range="1265-1319"></div>
+<div id="img21" class="cover hidden" data-time-range="1319-1362"></div>
+<div id="img22" class="cover hidden" data-time-range="1362-1415"></div>
+<div id="img23" class="cover hidden" data-time-range="1415-1530"></div>
+
+
+<div id="scene"></div>
+
+<div class="thefog"></div>
+<div class="player-wrap"></div>
+
+</div>
+
+<div class="transcriptionpop hidden"><div class="transpoptxt">
+<h2>The Course of Empire</h2>
+<h3>by Dele Adeyemo</h3>
+<br />
+<p><b>AS:</b> Anders Sandberg: Professor in Environmental Studies, York University</p>
+<p><b>LM:</b> Lisa Myers: Associate Professor, Environmental Arts & Justice Coordinator</p>
+<p><b>OB:</b> Ohemaa Boateng: Executive Director, Black Creek Community Farm</p>
+<p><b>OM:</b> Ola Mohammed: Assistant Professor, Black Studies, York University</p>
+<p><b>PV:</b> Black Creek Pioneer Village heritage museum. Schoolhouse demonstration</p>
+<p><b>RW:</b> Rinaldo Walcott: Chair Professor in Africana and American Studies, University at Buffalo and graduate of York University</p>
+<p><b>WM:</b> Wanda MacNevin: Community activist and the first employee of the Jane/Finch Community and Family Centre</p>
+<p><b>The Artist:</b> Dele Adeyemo, the project artist</p>
+<br />
+<p><b>Montage transcript:</b></p>
+<br />
+<p><b>The Artist:</b></p>
+<p>Civilization, when viewed from above, appears to flow in a straight line.<p>
+<p>Yet, when experienced from below, line bends to a circle.</p>
+<br />
+<p><b>The Artist (quoting Georges E. Sioui):</b></p>
+<p>Human societies that think and believe life functions in a linear mode have forgotten that life is a great and sacred circle of relationships. Linear thinking societies destroy circular life and thought within their communities and outside them.</p>
+<br />
+<p>These societies comprise their own existence, and must therefore leave their places of origin, seeking other locale where life is still sacred, and therefore abundant, in order to transplant their civilization, and thus Continue to exist.</p>
+<br />
+<p><b>OB:</b></p>
+<p>A lot of our stories, a lot of things that we connected on or we share - that pain that erasure that colonialism - it happened on this land, with indigenous people, and it continued to happen with the black, the black community.</p>
+<br />
+<p><b>OM:</b></p>
+<p>The danger of black sound is... </p>
+<br />
+<p><b>AS:</b></p>
+<p>So I don't know how much you know about York University, but York was really, created in the 1960s, to accommodate the baby boomers.  It was also a time when the university system was democratized.</p>
+<p>I suppose it  moved from being an elite institution to, uh, accommodating,   yes, people at large.</p>
+<p>So, York then was created along with many, many other universities in the same position,  but, what's unique about York more than any other university was that it, uh, it, it was plunked in the middle of nowhere.</p>
+<br />
+<p><b>The Artist:</b></p>
+<p>Welcome to this space  of enlightenment, outside of linear time.</p>
+<p>On this journey through your campus,  situated on the traditional territory of so many indigenous nations.   From high rise  to long house,  you'll be following the course of empire.</p>
+<br />
+<p><b>LM:</b></p>
+<p>I think there's a kind of care that needs to happen that sort of get glossed over.</p>
+<p>They have these old old buildings too, like old historic buildings that were the some original. Like there's an original farmhouse, the Stong House. And it's like the original settler's.  I guess they donated the land to York to, for the university, I believe, or to the city.</p>
+<p>That building's been there, you know, for like over a hundred years, and is in extreme disrepair.</p>
+<br />
+<p><b>AS:</b></p>
+<p>If you look at old photographs from the 50s, you will note this is all farm fields. People were still farming here. York was very much known as a social justice university.</p>
+<br />
+<p><b>RW:</b></p>
+<p>And indeed, one of the, in my days, one of the major skirmishes that literally almost came to physical violence was between Black students and Zionist students. Because when it was revealed was revealed that the Israeli state was helping to fund armed struggle  in South Africa,  this came to, to blows.</p>
+<p>York was one of the first places in Canada that led for, that led on the question of this divestment of pension funds  and other kinds of investments of universities, in Canada, and it was one of the first successful places.  And professors working at York did a lot of that research.</p>
+<p>In the 70s, students were seriously organizing  around  all of these anti colonial questions in the Caribbean and Africa.  That's the foundation of York. It's largely a bunch of draft dodgers from the Vietnam War who wanted to create a radical liberal arts college.</p>
+<p>Which is why York, for many, many years, had all of these interdisciplinary programs.</p>
+<br />
+<p><b>AS:</b></p>
+<p>We still are a social justice university. We sort of, tend to emphasize that in our, quote unquote, marketing - very much embracing this notion of an, enlightenment university.</p>
+<br />
+<p><b>RW:</b></p>
+<p>I got hired at York in 1995.  And even then it was still called the Division of Humanities.  And in the Division of Humanities, you had Religious Studies, Latin American and Caribbean Studies, Black Stu... well Black Studies was nascent but Black Studies and Caribbean Studies. You had people who did philosophy outside of the philosophy department. You had like this kind of just range of  things happening under the rubric of the division of humanities.</p>
+<p>I think there's still people around who know those histories, but it's been transformed so that York now looks like any contemporary neoliberal university.</p>
+<br />
+<p><b>AS:</b></p>
+<p>And that's where I wanted to start, just by referencing a few buildings that we might look at right now.</p>
+<p>You see the building over there, the Ross building... </p>
+<p>The brutalist architecture, it sort of represents the Enlightenment University, to me at least. And what you would have seen so many years ago is a ramp, uh, leading up to that particular building. It's being replaced now by another building, which I'm going to speak about a little bit later.</p>
+<br />
+<p><b>LM:</b></p>
+<p>York University is always building. They're always building these new things, right? </p>
+<br />
+<p><b>AS:</b></p>
+<p>It was symbolic of,  students,  and faculty emerging from, uh, the old farm fields that used to be here, up onto this platform, and the Ross Building, which was supposed  be part of an enlightenment,  experience.</p>
+<br />
+<p><b>LM:</b></p>
+<p>I like also the critique of the university as farming in a way of students - like the business of the business of education, the profit of education.</p>
+<p>So I find that is part of, the symptoms of this 'destinational' kind of architecture on a, on a campus, right?</p>
+<p>There's a kind of appeal. There's a kind of like, there's a kind of way of being showy with, with the buildings, you know, it's really postmodern in a way, like you see it all over, you know, with museums having these big, elaborate facades around their buildings, things like this. I feel like there's a kind of move to, to always be creating something new, but not considering, you know, what they actually have, and what they should be taking care of.</p>
+<br />
+<p><b>OB:</b></p>
+<p>So Jane and Finch was one of the neighborhoods that you'll find a lot of people here, they do a lot of frontline work, or factory work, or, work where they're doing multiple jobs. You see that where people who are, doing a lot of the frontline work, they're usually the ones who are racialized, black, people of color, and, um, yeah, this was one of those locations.</p>
+<br />
+<p><b>AS:</b></p>
+<p>I'll tell you a little anecdote that, I heard from one of the administrators that lived here. He told me, he came home one day and, the police was here (on campus),  with, all kinds of cars. And he asked, what are you doing? 'Well, from time to time we come up here and let our dogs loose, to come down here and sort of make sure that no people, you know, from the Jane and Finch, communities are infringing on this, this area here.' </p>
+<p>Yeah, very bizarre.  But, perhaps not surprising given the police behavior when it comes to black folks and the Jane and Finch community.</p>
+<p>This is Hoover Creek and it's named after Mr. Hoover here. And Hoover Creek runs into something called Black Creek. And Black Creek, is dividing, the university from, the community beyond it.</p>
+<p>So, you know, historically this is interesting because when York University was first established - I mean there, there were you debates about the extent to which it should be integrated with the local community.  historically then, there was this kind of divide created between the  gown and the town.</p>
+<p>Jane and Finch community which is a new immigrant, community has become so much more so, I mean, it wasn't initially... It's meant to be more middle class.  And there are remnants, well, there's still subdivisions here of, single family residences. And the, uh,  the big public housing units didn't come in until the...  the sixties.</p>
+<br />
+<p><b>WM:</b></p>
+<p>So here I am, single mom with three kids, on welfare, in a social housing building in Jane & Finch.</p> 
+<p>I didn't know anything about the community, I was scared, I didn't want to know anybody. But, um, you know, when you land in a building with people with similar circumstances, um, you start to get to know people.</p>
+<p>It was a worker that invited me to a meeting. And, what they were talking about was forming the first community based organization in Jane-Finch - the Jane-Finch Center, the Jane-Finch Community and Family Center. </p>
+<p>I mean, there's over 120 different ethno cultural groups in Jane-Finch, but when it came to social housing, they knew that they, they needed to accommodate affordable housing.</p>  
+<p>When it came to allocating the social housing units, they allocated 143 in the Ward  They allocated 200 and some odd ward five, and they allocated 2,286 to Jane and Finch.  Now, why did they do that?  Why would any councillor allow this density come to Jane and Finch without the social infrastructure supports to the people coming from all over the world to our community? </p>
+<br />
+<p><b>OB:</b></p>
+<p>I'm able, to have the privilege to have a backyard. I'm able to grow my own food, collect eggs every morning, and, the kids are just able, if they're hungry to just pick, which is a privilege. Access to land is a key part of having sovereignty, and if you are, someone who's from the community and you don't have access to land, the next grocery store is like how many kilometers away? And that all ties into food sovereignty, being able to feed yourself, especially during the pandemic, it was really helpful for me, where there was long lines, no food in the grocery aisles... even toilet paper was like non-existent... and you don't have a transportation, like a lot of seniors, then what do you do? How do you feed yourself?</p>
+<br />
+<p><b>AS:</b></p>
+<p>These folks were farmers, primarily. And then, one of their main staples was corn.  And they grew corn together with beans and squash. And the interesting part of that combination is that they feed off each other. The beans are nitrogen fixers, and the corn does something else, and the squash does something else. Yeah.</p>
+<p>And, the fields were huge. The Jesuits, the missionaries got lost in these fields when they visited some of these villages.  Actually, our whole walk... today would've been in a front field. It's about one kilometer. </p>
+<p>Sometimes they have longhouses outside for guests, but typically if you're member of the group, you would probably have lived within the palisade. So the missionaries, whenever they would have visited, then they would have lived... they would have been put up outside. What the Huron Wendat are doing now is to...  they're renaming some of these sites.  Maybe that will happen here, too. </p>
+<br />
+<p><b>OB:</b></p>
+<p>So when you think of like black history, and how a lot of our stories, a lot of things that we can be connected on, that we share in that that pain or that erasure that colonialism... It happened on this farm as well, it happened on this land, even with indigenous people, and it continued to happen with the black community especially during colonial times when they would bring in certain crops or plants, they would take over the native species that were growing here? And, that hindered indigenous people's ability to also feed themselves.</p>
+<p>Because those plants didn't have their natural predators or weren't able to work in a symbiotic way with other plants. It's more like takeover. And they brought in their own types of pests as well.</p> 
+<br />
+<p><b>LM:</b></p>
+<p>So we had this garden and York University mowed it over. They cut it back. They cut the grass and they cut our garden as well. And I'm so upset about that. But what, what struck me is that I realized like about a month later, like the plants came back, the plants, the perennial, they, they were like, they were ever present, they came back, it didn't matter that you mowed it down, it didn't matter that you thought, you know, you needed to manicure this lawn that you thought this was part of, it comes, they come back.</p><br />
+<p><b>OB:</b></p>
+<p>Everyone has their own way of growing food and you learn so much about how different cultures grow different crops or the same crop that we might grow up there, but we would do it differently here and have different uses for it. It's like a good space to just learn from so many different parts of the world in one spot.</p>
+<p>And so when you watch other people come and see how they grow, it's, it's their way of connecting to a land that is foreign to them or new to them... that it grounds them here, which is, I think something that, when it comes to food and the land is... It's like a universal language, especially when you actually care for it. </p>
+<br />
+<p><b>PV:</b></p>
+<p>Billy Button bought a butter biscuit. Now, 1, 2, 3, we're going to do 1, 2, 3 and try to say it faster, okay? Here we go, 1, 2, 3... Billy Button bought a butter biscuit...</p>
+<p>If you had been 150 years ago, First Nations children, they were brought to residential schools. So they would have been brought off of their reservation and they would have been put into schools where they were teaching the three R's (Reading, wRiting & aRithmetic), and of course they were enforcing English.</p>
+<p>So they were taking away their, their, um, uh, native language and saying... 'you speak English, or else.'</p>
+<br />
+<p><b>OB:</b></p>
+<p>So they have sweet grass, which is what they see as mother's nature's hair. Sweet grass... and they usually harvest it and braid it. Then you have sage. And then they have cedar and then tobacco. And they all have their own medicinal properties and have their own sacred meaning for the culture. And you have people growing seeds from back home here. And seeing a variety of crops is also really interesting.</p>
+<p>For me, I bring seeds for sure, and it's actually part of the food production. So back home for me is Ghana. So we, back home we're small villagers who grow our food -  you're directly connected with the food that you grow, but I was a city girl. I was raised here, wasn't born here, but raised here. And when I started having kids, I realized there's so much that we do without thinking about it, and just accept as truth.</p>
+<br />
+<p><b>WM:</b></p>
+<p>This fella came over for dinner with a friend of mine. And actually, he was from Nigeria. And so, we're chatting, and I said, so, what brought you to, to Canada? And he said, 'somebody in my village told me to go to Jane-Finch in Toronto.'  I mean, talk about a small world, right? </p>
+<p>In terms of the planning for the neighborhood, again, it was meant as a middle-class homeowner neighborhood, and they plunked all the social housing in without the social infrastructure. </p>
+<p>ou're placed in a social housing building. Okay. You're labeled. I used to hate to go to the bank to cash my well fair check. I was always embarrassed about that. And here's me... if I feel like that, how does somebody from another country feel about that? So it's degrading, because people look at you funny and they stereotype you. Yeah, I was white, so I survived it probably better than a lot of other people from around the world.</p>
+<p>But I think my learning came by the environment that I worked in. If I'd gotten another job at a bank or a clerical job somewhere, I would never have had the experience that I've had. It's exposure to the environment.</p>
+<p>There was a whole lot of ignorance to the building of Jane-Finch. I think if kids don't have a place to go, a safe place to go, um, they're going to get caught up in the problems.</p>
+<br />
+<p><b>OM:</b></p>
+<p>There's really no physical space here for Black people to exist. And even, beyond just that, like, thinking about sound and sonic practices, and like, there's a lack of space here for them.</p>
+<br />
+<p><b>OB:</b></p>
+<p>If they have jobs and something to do, then they are I'm going to be less on the streets.</p> 
+<br />
+<p><b>WM:</b></p> 
+<p>It's never been the people that are the problem. It's the built environment and the lack of social infrastructure that cause the problems for people who live there.</p>
+<p>The women's groups, we did them out in different neighborhoods, not in one location. We went into neighborhoods, okay, and addressed neighborhood issues. So, everything that we did, we had to fight for. Nothing came easily.</p>
+<br />
+<p><b>OM:</b></p>
+<p>So really like where my work came from... is like this saying that my mom... my mom used to say a lot of sayings... and it was actually incredibly important for me to kind of ground family in my work... She always used to say, 'nothing is free in this whole white world', and I used to think I was like, oh, like maybe this is a slip of translation and she's like, 'No. This is what I mean.' The importance of listening growing up was constantly something that, my family was deeply engaged in, as a multilingual family, not being able to kind of translate with folks.</p>
+<p>So it's like the different ways that you communicate, right? So thinking about what you're talking about with the soil and like, that's how you understand language and thinking about like with my grandmother and it was through food that we understood how to talk to each other or songs and dance and things like that.</p>
+<p>And so that really became the impetus for my work was to think about how do people listen? And also what that looks like in practice, right? It's not a neutral practice. It's really embedded with a lot of different values.</p>
+<p>For a lot of people they think also about race through the category of the visual and so it's like, 'representation is enough'. And I'm not asking for representation. Like I'm asking for the next step, which is relationality. And that is still being refused. So I think that's what sound and sonic practices kind of allow us to get into the muddied water to think about a bit more.</p>
+<p>Sound is... sound is always continuing. It doesn't get like... it's, it's like a porous material, it doesn't get stuck through borders. So I think it's something that's, been incredibly important for black communities. And as it has been whether through like storytelling or a sonic practices that black people create... they've always found ways to... to move. Which is... which is why I like sounds.</p>
+<p>Ron Nelson, hosted the Fantastic Voyage, which was the first black college radio show and launched a lot of artists in the city. Um, and there's like a really rich history about black radio, in Toronto</p>
+<p>The York radio station here, has been incredibly important for community, particularly like in the Jane and Finch area. But there was like a buyout or a takeover that shifted the programming that happens on that radio station. And so it no longer is this kind of central hub for community to use to speak and connect with each other. Which is also like indicative of a lot of what's happened in Canada with its radio broadcasting industry in general, where they purchase stations and use them as brands for blackness as a way to kind of make money... and profit off of, but have completely cut out not only just the radio hosts and stuff like that, but also reduced a lot of the music that they play from black musicians.</p>
+<p>In spite of all of these violences that are happening, how do black people organize and also just exist on their own terms.</p>
+<p>The reason why blackness and black sounds get registered as noise, is a way to refuse actually engaging with what black people want or need and insisting on a different kind of relation.</p>
+<p>And to do that would insist that the state, and not even just the state. Just in everyday relations, thinking about the ways in which Black people are thought of as too much - 'they're excessive; you're too loud; you're too this; we need to silence you. Like, I'm not gonna hear you because to do so would mean I'd have to recognize your humanity, your needs, and also what, what my role is in your suffering, or in your experiences'. And to have to reconcile with that would mean that, lots of things would have to change.
+</p>
+<br />
+<div class="spacer"></div>
+</div></div>
+
+<div class="descriptionpop hidden"><div class="transpoptxt">
+<p><b>From Longhouse to Highrise: The Course of Empire</b>, 2023, by Dele Adeyemo is a multidimensional archive of space that critically responds to the fiction of linear development contained in an origin story of North York, Canada, published in 1986 in the booklet From Longhouse to Highrise: Pioneering in our corner of North York. To unravel this fiction, Adeyemo combines a soundscape of voices from within and in proximity to York University's Keele campus with architectural projections of the territory, asking what does it mean to be caught in the course of empire? 
+Commissioned by the Art Gallery of York University in 2022 under the curatorial lead of Felicia Mings, Adeyemo was invited to create a digital artwork focused on the site of the gallery's new location, and soon-to-be transformation into the Joan and Martin Goldfarb Gallery on York University's Keele campus. For this new artwork, the artist invokes his methodology of Trans-Epistemic Mapping, inspired by cartographic methods and architectural site analysis. As part of this process, he studied ecological drawings, aerial photographs, topographic maps, and literature on the region as the first phase of developing alternative modes of mapping. From September 25 to October 2, 2022, Adeyemo resided on campus for an intensive week immersion that included alternative campus tours, visiting Black Creek Community Farm, and engaging in one-on-one and small group meetings with faculty and York region community members, recordings of which form the basis of the work. The week culminated with Adeyemo sharing his initial observations via a public conversation with Toronto-based journalist and urban planning scholar Nehal El-Hadi. Their conversation is captured on our website at <a href="https://agyu.art/project/trans-epistemic-mapping/" target="_blank">agyu.art/project/trans-epistemic-mapping</a></p>
+<p>In describing From Longhouse to Highrise: The Course of Empire, Adeyemo notes: "The university campus, the shining beacon of the enlightenment institution in North America, perhaps more than any developed geography, highlights the complexities of this historic narrative of development. In the United States in the nineteenth century, millions of acres of Indigenous land was sold to endow fledgling land-grant universities. The territory of North York followed a different history and yet it too bears witness to the teleological imaginary of the land as it was violently transitioned from a home to First Nations Peoples such as the Huron-Wendat, to a site of settler agricultural production, through to its position as the location of the higher education institution of York University."</p>
+<p>To highlight the strangeness of settler colonialism and the forms and environments it produces, Adeyemo experimented with various creative processes, such as hand-drawings and works generated through data and artificial intelligence, to determine the appropriate media needed to portray a journey through the periods and geography which now define York University's Keele campus and surrounding neighborhoods. As an artist based in London, England, with limited direct contact with the subject location, its communities, and their experiences, Adeyemo chose to rely on the voices he engaged during his early research. As such, the artist returned to the audio recordings from his site visit, structuring them as the core of this project. Culled from longer conversations, each voice is represented as a singular unique perspective collaged into a soundscape, offering a creative lens to reflect on the entangled histories of the land, development, and resistance to the catastrophe of empire. We thank Ohemaa Boateng, Wanda MacNevin, Ola Mohammed, Lisa Myers, Rinaldo Walcott, and Anders Sandberg for lending their voices to this artwork, Tony Njoku for the soundscape design and Em Woudenberg of Strike Design Studio for the project's web development. We also acknowledge the Canada Council for the Arts through its Digital Strategy Fund for funding the research and production of this new artwork.</p>
+<br />
+<p><b>Project Credits:</b></p>
+<p><b>Artistic conceptualization:</b><br />
+Dele Adeyemo<br />
+@dele_adeyemo</p>
+<p><b>Curator:</b><br />
+Felicia Mings<br />
+@a_g_y_u</p>
+<p><b>Collaborators:</b></p>
+<p><b>Website development</b><br />
+Em Woudenberg, Strike Design Studio<br />
+@studioonstrike</p>
+<p><b>Sound design</b><br />
+Tony Njoku<br />
+@tonynjokuartist</p>
+<br />
+<p><b>Image credits:</b></p>
+<ul>
+<li>Black Creek Community Farm Medicine Wheel. Courtesy of Black Creek Community Farm.</li>
+<li>San Romanonway apartments Jane and Finch. Courtesy of Mariko Sugita Traveling Circus of Urbanism.</li>
+<li>AGYU new gallery competition proposal. Courtesy of Moriyama Teshima Architects.</li>
+</ul>
+<br />
+<p><b>Archival maps and images:</b></p>
+<ul>
+<li>York University Libraries, Clara Thomas Archives & Special Collections, York University Computing and Network Services fonds, ASC15903.</li>
+<li>Image of Murray Ross at a desk in a field taken for a Toronto Telegram story entitled "I’m here... now where is my university."</li>
+<li>Osgoode Convocation held on the Ross terrace. The podium is located against the west wall of the Scott Library and the west side of the Ross Building is in the background.</li>
+<li>Archives of Ontario. C 295-1-163-0-56. Map of the Township of York and the City of Toronto 1895.</li>
+<li>Archives of Ontario. F 2074 Tremaine's map of the County of York (1st page) 1860.</li>
+<li>Historic Aerial View of Keele Campus, 1960. Photograph courtesy of York University Development Corporation.</li>
+<li>Historic Aerial View of Keele Campus, 1980. Photograph courtesy of York University Development Corporation.</li>
+</ul>
+<br />
+<p>We have made every endeavour to contact the archives and producers of the images used in the project. All other images are the artist's own copyright unless otherwise stated.</p>
+<div class="spacer"></div>
+</div></div>
+
+<script>
+        window.addEventListener('load', function () {
+            var loading = document.getElementById('loading');
+            var content = document.getElementById('play-button-load');
+
+            // Hide the loading message
+            loading.style.display = 'none';
+
+            // Show the content
+            content.style.display = 'inline';
+        });
+    </script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+           
+            // Function to handle button click event
+            function handleButtonClick() {
+                // Get the elements by class name
+                var transcriptionPop = document.querySelector('.transcriptionpop');
+                var closeSpan = document.querySelector('.closebutt');
+                var openSpan = document.querySelector('.openbutt');
+
+                // Remove the 'hidden' class from the elements
+                transcriptionPop.classList.remove('hidden');
+                closeSpan.classList.remove('hidden');
+                openSpan.classList.add('hidden');
+            }
+
+            // Function to handle close button click event
+            function handleCloseClick() {
+                // Get the elements by class name
+                var transcriptionPop = document.querySelector('.transcriptionpop');
+                var closeSpan = document.querySelector('.closebutt');
+                var openSpan = document.querySelector('.openbutt');
+
+                // Add the 'hidden' class to the elements
+                transcriptionPop.classList.add('hidden');
+                closeSpan.classList.add('hidden');
+                openSpan.classList.remove('hidden');
+            }
+
+
+            // Add click event listener to the button
+            var transButton = document.querySelector('.openbutt');
+            transButton.addEventListener('click', handleButtonClick);
+
+            // Add click event listener to the close button
+            var closeButton = document.querySelector('.closebutt');
+            closeButton.addEventListener('click', handleCloseClick);
+
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+           
+            // Function to handle button click event
+            function handleButtonClick() {
+                // Get the elements by class name
+                var descriptionPop = document.querySelector('.descriptionpop');
+                var closeSpandesc = document.querySelector('.closebuttdesc');
+                var openSpandesc = document.querySelector('.openbuttdesc');
+
+                // Remove the 'hidden' class from the elements
+                descriptionPop.classList.remove('hidden');
+                closeSpandesc.classList.remove('hidden');
+                openSpandesc.classList.add('hidden');
+            }
+
+            // Function to handle close button click event
+            function handleCloseClick() {
+                // Get the elements by class name
+                var descriptionPop = document.querySelector('.descriptionpop');
+                var closeSpandesc = document.querySelector('.closebuttdesc');
+                var openSpandesc = document.querySelector('.openbuttdesc');
+
+                // Add the 'hidden' class to the elements
+                descriptionPop.classList.add('hidden');
+                closeSpandesc.classList.add('hidden');
+                openSpandesc.classList.remove('hidden');
+            }
+
+
+            // Add click event listener to the button
+            var descButton = document.querySelector('.openbuttdesc');
+            descButton.addEventListener('click', handleButtonClick);
+
+            // Add click event listener to the close button
+            var closeButtondesc = document.querySelector('.closebuttdesc');
+            closeButtondesc.addEventListener('click', handleCloseClick);
+
+        });
+    </script>
+
+<script async type="module" src="./js/scene.js"></script>
+</body>
+</html>
