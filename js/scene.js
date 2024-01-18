@@ -72,7 +72,7 @@ const createModel = (modelPath, position, uniqueID, uniqueTimestamp, scale, rota
 };
 
 // Create models with unique scale, rotation speed, and audio start time
-createModel('./model/cluster2.gltf', new THREE.Vector3(0, 0, 0), 'model2', 30, new THREE.Vector3(0.2, 0.2, 0.2), 0.004, 99); //1:35
+createModel('./model/cluster2.gltf', new THREE.Vector3(0, 0, 0), 'model2', 30, new THREE.Vector3(0.2, 0.2, 0.2), 0.004, 32); //32
 createModel('./model/cluster3.gltf', new THREE.Vector3(0, 0, 0), 'model3', 40, new THREE.Vector3(0.25, 0.25, 0.25), 0.003, 124); //2:03
 createModel('./model/cluster4.gltf', new THREE.Vector3(0, 0, 0), 'model4', 40, new THREE.Vector3(0.2, 0.2, 0.2), 0.002, 220);  //3:38
 createModel('./model/cluster5.gltf', new THREE.Vector3(0, 0, 0), 'model5', 40, new THREE.Vector3(0.15, 0.15, 0.15), 0.004, 257); //4:15
