@@ -219,28 +219,42 @@ const onMouseHoverOut = () => {
 };
 
 
-// Add event listeners for mouse hover and hover out
-window.addEventListener('mousemove', onMouseHover, false);
-window.addEventListener('mouseout', onMouseHoverOut, false);
-
-// Function to handle play button click
-const onPlayButtonClick = () => {
+// Function to handle play/pause button click
+const onPlayPauseButtonClick = () => {
   if (!audioStarted) {
     // If audio is not started, start it from the beginning
     audio.currentTime = 0;
     audio.play();
     audioStarted = true;
+    playButton.textContent = 'pause'; // Update button text content to 'pause'
   } else {
-    // If audio is already started, resume playback
-    audio.play();
+    // If audio is already started, toggle between play and pause
+    if (audio.paused) {
+      audio.play();
+      playButton.textContent = 'pause'; // Update button text content to 'pause'
+    } else {
+      audio.pause();
+      playButton.textContent = 'play_arrow'; // Update button text content to 'play_arrow'
+    }
   }
 };
+
+// Remove individual play and pause button event listeners
+playButton.removeEventListener('click', onPlayButtonClick);
+pauseButton.removeEventListener('click', onPauseButtonClick);
+
+// Add play/pause button event listener
+playButton.addEventListener('click', onPlayPauseButtonClick);
 
 // Function to handle pause button click
 const onPauseButtonClick = () => {
   // Pause the audio
   audio.pause();
+  playButton.textContent = 'play_arrow'; // Update play/pause button text content to 'play_arrow'
 };
+
+// Add event listener for pause button
+pauseButton.addEventListener('click', onPauseButtonClick);
 
 // Select the existing "vert-center" div
 const playerWrap = document.querySelector('.player-wrap');
