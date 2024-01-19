@@ -131,11 +131,16 @@ if (!allowModelClicks) {
   if (intersects.length > 0) {
     const modelData = intersects[0].object.userData.modelData;
 
-    if (!audioStarted) {
+    if (audioStarted) {
       // If audio is not started, start it from the model's audioStartTime
       audio.currentTime = modelData.audioStartTime;
       audio.play();
       audioStarted = true;
+
+      // Hide play button, show pause button
+    playButton.style.display = 'none';
+    pauseButton.style.display = 'block';
+    
     } else {
       // If audio is already started, adjust the current time to the model's audioStartTime
       audio.currentTime = modelData.audioStartTime;
@@ -230,9 +235,17 @@ const onPlayButtonClick = () => {
     audio.currentTime = 0;
     audio.play();
     audioStarted = true;
+
+    // Hide play button, show pause button
+    playButton.style.display = 'none';
+    pauseButton.style.display = 'block';
   } else {
     // If audio is already started, resume playback
     audio.play();
+
+    // Hide play button, show pause button
+    playButton.style.display = 'none';
+    pauseButton.style.display = 'block';
   }
 };
 
@@ -240,6 +253,10 @@ const onPlayButtonClick = () => {
 const onPauseButtonClick = () => {
   // Pause the audio
   audio.pause();
+
+  // Hide pause button, show play button
+  pauseButton.style.display = 'none';
+  playButton.style.display = 'block';
 };
 
 // Select the existing "vert-center" div
