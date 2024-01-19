@@ -281,7 +281,7 @@ const playerWrap = document.querySelector('.player-wrap');
 // Create rewind button
 const rewindButton = document.createElement('button');
 rewindButton.textContent = 'fast_rewind';
-rewindButton.id = 'rewind-button';
+rewindButton.id = 'rewind';
 rewindButton.addEventListener('click', onRewindButtonClick);
 playerWrap.appendChild(rewindButton);
 
@@ -302,7 +302,7 @@ playerWrap.appendChild(pauseButton);
 // Create fast forward button
 const fastForwardButton = document.createElement('button');
 fastForwardButton.textContent = 'fast_forward';
-fastForwardButton.id = 'fast-forward-button';
+fastForwardButton.id = 'forward';
 fastForwardButton.addEventListener('click', onFastForwardButtonClick);
 playerWrap.appendChild(fastForwardButton);
 
