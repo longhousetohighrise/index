@@ -259,8 +259,32 @@ const onPauseButtonClick = () => {
   playButton.style.display = 'block';
 };
 
+// Function to handle fast forward button click
+const onFastForwardButtonClick = () => {
+  if (audioStarted) {
+    // Skip forward by 20 seconds
+    audio.currentTime += 20;
+  }
+};
+
+// Function to handle rewind button click
+const onRewindButtonClick = () => {
+  if (audioStarted) {
+    // Skip backward by 20 seconds
+    audio.currentTime -= 20;
+  }
+};
+
 // Select the existing "vert-center" div
 const playerWrap = document.querySelector('.player-wrap');
+
+// Create rewind button
+const rewindButton = document.createElement('button');
+rewindButton.textContent = 'fast_rewind';
+rewindButton.id = 'rewind-button';
+rewindButton.addEventListener('click', onRewindButtonClick);
+playerWrap.appendChild(rewindButton);
+
 
 // Add play and pause buttons to the HTML
 const playButton = document.createElement('button');
@@ -274,6 +298,13 @@ pauseButton.textContent = 'pause';
 pauseButton.id = 'pause-button'; // Add id 'play-button'
 pauseButton.addEventListener('click', onPauseButtonClick);
 playerWrap.appendChild(pauseButton);
+
+// Create fast forward button
+const fastForwardButton = document.createElement('button');
+fastForwardButton.textContent = 'fast_forward';
+fastForwardButton.id = 'fast-forward-button';
+fastForwardButton.addEventListener('click', onFastForwardButtonClick);
+playerWrap.appendChild(fastForwardButton);
 
 // Select the existing "vert-center" div
 const vertCenterDiv = document.querySelector('.vertcen');
@@ -294,9 +325,9 @@ loadButton.addEventListener('click', () => {
   setTimeout(() => {
     // Add the "hidden" class to the loading screen
     loadingScreenDiv.classList.add('hidden');
-    // Set allowModelClicks to false 
+    // Set allowModelClicks to false after 3 seconds
     allowModelClicks = true;
-  }, 1500); 
+  }, 2000); // 3000 milliseconds = 2 seconds
 });
 
 // Animation loop
