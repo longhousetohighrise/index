@@ -146,7 +146,7 @@ h2 {
 .transcriptionpop {
 position: absolute;
 width: 100%;
-height: 100%;
+height: auto;
 z-index: 50;
 background:
     linear-gradient(red, transparent),
@@ -156,12 +156,13 @@ background-blend-mode: screen;
 top:0;
 text-align: center;
 padding: 0px 20px 0px 20px;
+overflow: scroll;
 }
 
 .descriptionpop {
 position: absolute;
 width: 100%;
-height: 100%;
+height: auto;
 z-index: 50;
 background:
     linear-gradient(red, transparent),
@@ -171,6 +172,7 @@ background-blend-mode: screen;
 top:0;
 text-align: center;
 padding: 0px 20px 0px 20px;
+overflow: scroll;
 }
 
 .transpoptxt {
@@ -179,7 +181,6 @@ margin-left:auto;
 margin-right: auto;
 text-align: left;
 height: 100%;
-overflow: scroll;
 font-size: 1em;
 padding-right: 40px;
 padding-top:50px;
