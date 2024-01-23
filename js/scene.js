@@ -301,7 +301,7 @@ playerWrap.appendChild(pauseButton);
 
 // Create fast forward button
 const fastForwardButton = document.createElement('button');
-fastForwardButton.textContent = 'fast_forward';
+fastForwardButton.textContent = '<img src="./favicon/forward.svg" alt="fast forward 20 seconds">';
 fastForwardButton.id = 'forward';
 fastForwardButton.addEventListener('click', onFastForwardButtonClick);
 playerWrap.appendChild(fastForwardButton);
