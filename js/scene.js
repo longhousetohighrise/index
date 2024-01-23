@@ -325,9 +325,8 @@ loadButton.addEventListener('click', () => {
   setTimeout(() => {
     // Add the "hidden" class to the loading screen
     loadingScreenDiv.classList.add('hidden');
-    // Set allowModelClicks to false after 3 seconds
     allowModelClicks = true;
-  }, 2000); // 3000 milliseconds = 2 seconds
+  }, 1500); 
 });
 
 // Animation loop
