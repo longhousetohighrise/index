@@ -509,6 +509,9 @@ padding-right: 15px;
 
 @media (max-width: 500px) {
 
+.descriptionpop {width: auto;}
+.transcriptionpop {width: auto;}
+
 .loadingscreen {width: 100%;}
 .vertcen {width: 100%;}
 
